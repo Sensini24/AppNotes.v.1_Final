@@ -348,35 +348,6 @@ public class CrearNota extends AppCompatActivity {
         }
     }
 
-    /*
-    private void anuncioEliminar() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view = LayoutInflater.from(this).inflate(R.layout.alerta_eliminacion, null);
-        builder.setView(view);
-        AlertDialog dialog = builder.create();
-
-        TextView btnSi = view.findViewById(R.id.btnSi);
-        TextView btnNo = view.findViewById(R.id.btnNo);
-
-        btnSi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                eliminarNota();
-                dialog.dismiss();
-            }
-        });
-
-        btnNo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-        dialog.show();
-    }
-
-     */
-
 
     private Bitmap redimensionarBitmap(Bitmap bitmap, int maxSize) {
         int width = bitmap.getWidth();

@@ -1,6 +1,7 @@
 package com.example.appnotes.adapter;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -27,6 +28,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appnotes.entities.Nota;
 import com.example.appnotes.listener.NotaListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -88,6 +90,15 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
                     }
                 }, 1000);
 
+            }
+        });
+
+        holder.imagen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String url = nota.getImagenRuta();
+                holder.mostrarFotoDialogo(url);
             }
         });
 
@@ -217,6 +228,21 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaViewHolder
             executor.shutdown();
         }
 
+        private void mostrarFotoDialogo(String imageUrl) {
+            Dialog dialog = new Dialog(notaCuerpo.getContext());
+            dialog.setContentView(R.layout.crecer_foto); // Layout personalizado para el cuadro de diálogo
+
+            ImageView imageView = dialog.findViewById(R.id.ivImage);
+
+            Bitmap bitmap = BitmapFactory.decodeFile(imageUrl);
+
+
+            Bitmap resizedBitmap = redimensionarBitmap(bitmap, 2000);
+            imageView.setImageBitmap(resizedBitmap);
+             // Carga la imagen en el ImageView del cuadro de diálogo
+
+            dialog.show();
+        }
 
 
 
