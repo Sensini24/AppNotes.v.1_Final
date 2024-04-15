@@ -6,13 +6,9 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.appcompat.widget.SearchView;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -29,8 +25,6 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.example.appnotes.Database.NotaDataBase;
 import com.example.appnotes.adapter.NotaAdapter;
 import com.example.appnotes.async.BitmapUtils;
-import com.example.appnotes.async.InsertarNomUsuario;
-import com.example.appnotes.async.RealPathUtil;
 import com.example.appnotes.entities.Nota;
 import com.example.appnotes.entities.Usuario;
 import com.example.appnotes.listener.NotaListener;
@@ -52,9 +46,7 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
 
     //nuevo codigo
     private static final int EDITAR_NOTA_REQUEST_CODE = 1;
-    private static final int ESTABLECER_FOTO_PERFIL = 2;
 
-    private File f;
 
     private FloatingActionButton agregarNota;
     private RecyclerView listaNotasRecycler;
@@ -91,8 +83,6 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
         fechaAct = findViewById(R.id.fechaActual);
         imagePerfil = findViewById(R.id.imagenPerfil);
         perfilUsuario = findViewById(R.id.perfilUsuario);
-        path2 = findViewById(R.id.path2);
-        path3 = findViewById(R.id.path3);
 
 
         SimpleDateFormat fechaH = new SimpleDateFormat("EEE dd MMM", new Locale("es", "PE"));
@@ -101,10 +91,6 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
         fechaAct.setText(fechaHeader);
 
         String usuarioId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        //new InsertarNomUsuario(getApplicationContext(), usuarioId, nombreusuario).execute();
-
-
 
         logoutAnim.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,7 +163,7 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
 
 
         getNotas(usuarioId);
-        cargarFoto();
+        cargarFotoYNombre();
     }
 
 
@@ -242,7 +228,7 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
 
 
 
-    private void cargarFoto(){
+    private void cargarFotoYNombre(){
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -253,11 +239,11 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
                     @Override
                     public void run() {
 
-
-
-                        nombreusuario.setText(usuario.getNombre().trim());
-                        Toast.makeText(getApplicationContext(), usuario.getNombre(), Toast.LENGTH_SHORT).show();
-
+                        if(usuario.getNombre().isEmpty() || usuario.getNombre() == null){
+                            nombreusuario.setText("Nombre Random");
+                        }else{
+                            nombreusuario.setText(usuario.getNombre().trim());
+                        }
 
                         if (!TextUtils.isEmpty(usuario.getFotoUsuario())) {
 

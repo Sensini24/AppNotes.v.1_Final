@@ -137,70 +137,66 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:orientation="horizontal"
         android:background="#92B4F4"
         >
 
         <LinearLayout
-            android:id="@+id/btnSalir"
-            android:layout_width="160px"
-            android:layout_height="160px"
-            android:layout_marginLeft="25dp"
-            android:background="@drawable/redondear_salir">
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/logoutA"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                app:lottie_rawRes="@raw/logout_animation"
-                />
-        </LinearLayout>
-
-        <Space
-            android:layout_width="87dp"
-            android:layout_height="wrap_content"
-            />
-
-        <LinearLayout
-            android:layout_width="160px"
-            android:layout_height="160px"
-            android:background="@drawable/redondear_salir">
-
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/perfilUsuario"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:lottie_rawRes="@raw/perfiluser" />
-        </LinearLayout>
-
-        <Space
-            android:layout_width="87dp"
-            android:layout_height="wrap_content"
-            />
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnAgregarNota"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginBottom="25dp"
-            android:backgroundTint="#5E7CE2"
-            android:src="@drawable/cruz"
-            >
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/barra_btnes_notas">
 
-        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+            <LinearLayout
+                android:id="@+id/btnSalir"
+                android:layout_width="160px"
+                android:layout_height="160px"
+                android:layout_marginLeft="25dp"
+                android:background="@drawable/redondear_salir">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/logoutA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    app:lottie_rawRes="@raw/logout_animation" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="87dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="160px"
+                android:layout_height="160px"
+                android:background="@drawable/redondear_salir">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/perfilUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:lottie_rawRes="@raw/perfiluser" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="87dp"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnAgregarNota"
+                android:layout_width="160px"
+                android:layout_height="160px"
+                android:layout_marginRight="25dp"
+                android:backgroundTint="#CFDEE7"
+                android:src="@drawable/cruz">
+
+            </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/awd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginLeft="227dp"
-            android:layout_marginBottom="25dp"
-            app:lottie_rawRes="@raw/add_note_animation"
-            />
+        </LinearLayout>
 
 
     </LinearLayout>
