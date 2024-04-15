@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/alertaEliminar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/alerta_delete"
+    android:layout_marginLeft="50dp"
+    android:layout_marginStart="12sp"
+    android:layout_marginTop="12sp"
+    android:layout_marginEnd="12sp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="19sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/josesemibold"
+        android:text="¿Estás seguro de Eliminar esta nota?"
+        android:layout_marginStart="8sp"
+        android:layout_marginEnd="8sp"
+        android:layout_marginTop="8sp"
+        android:includeFontPadding="false"
+        android:gravity="center">
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/btnSi"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="Sí"
+            android:onClick="confirmarEliminar"
+            android:background="@drawable/btn_eliminar"
+            android:textColor="@color/black"
+            android:gravity="center"/>
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:id="@+id/btnNo"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="No"
+            android:onClick="cancelarEliminar"
+            android:background="@drawable/btn_eliminar"
+            android:textColor="@color/black"
+            android:gravity="center"/>
+    </LinearLayout>
+</LinearLayout>

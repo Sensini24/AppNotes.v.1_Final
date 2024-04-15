@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/notaBox"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/redondear_notas"
+    android:layout_marginLeft="50dp"
+    android:layout_marginStart="12sp"
+    android:layout_marginTop="12sp">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/eliminarNota"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="-35dp"
+            app:lottie_rawRes="@raw/delete_lordicon"
+            />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lotfavorito"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right"
+            app:lottie_rawRes="@raw/bookmark_masmenos"
+            />
+        <ImageView
+            android:id="@+id/imagenFoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8sp"
+            android:layout_marginEnd="8sp"
+            android:layout_marginTop="8sp"
+            android:includeFontPadding="false"
+            android:maxWidth="600px"
+            android:maxHeight="600px"
+                />
+        <TextView
+            android:id="@+id/notaTitulo"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:textSize="19sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/monobold"
+            android:layout_marginStart="8sp"
+            android:layout_marginEnd="8sp"
+            android:layout_marginTop="8sp"
+            android:includeFontPadding="false"/>
+
+        <TextView
+            android:id="@+id/notaContenido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/monoregular"
+            android:layout_marginStart="8sp"
+            android:layout_marginEnd="4sp"
+            android:layout_marginTop="8sp"
+            android:includeFontPadding="false"/>
+
+        <TextView
+            android:id="@+id/notaFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="9sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/monobolditalic"
+            android:layout_marginStart="8sp"
+            android:layout_marginEnd="4sp"
+            android:layout_marginTop="8sp"
+            android:includeFontPadding="false"/>
+
+</LinearLayout>

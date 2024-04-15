@@ -1,0 +1,8 @@
+<!-- res/drawable/button_with_border.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#92B4F4" /> <!-- Color de fondo del botón -->
+    <corners android:radius="8dp" /> <!-- Radio de las esquinas, ajusta según lo desees -->
+    <stroke
+        android:width="2dp"
+        android:color="#4472CA" /> <!-- Ancho y color del borde del botón -->
+</shape>

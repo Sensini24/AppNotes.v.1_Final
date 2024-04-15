@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="#92B4F4"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="103dp"
+            android:layout_height="180dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="-60dp"
+            android:src="@drawable/adorno2">
+        </ImageView>
+
+        <EditText
+            android:id="@+id/txttítulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="-45dp"
+            android:padding="18dp"
+            android:background="@drawable/redondear_notas"
+            android:backgroundTint="#CFDEE7"
+            android:fontFamily="@font/monoregular"
+            android:gravity="start|top"
+            android:hint="Título"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:id="@+id/txtcontenido"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="50dp"
+            android:padding="18dp"
+            android:background="@drawable/redondear_notas"
+            android:backgroundTint="#CFDEE7"
+            android:fontFamily="@font/monoregular"
+            android:gravity="start|top"
+            android:hint="Escribe una nota..."
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/fotoCamara"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:maxWidth="600px"
+            android:maxHeight="600px"
+            />
+
+        <TextView
+            android:id="@+id/txtFecha"
+            android:layout_width="290dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:padding="18dp"
+            android:background="#92B4F4"
+            android:fontFamily="@font/monoregular"
+            android:gravity="center"
+
+            />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="100dp"
+            android:backgroundTint="#CFDEE7"
+            app:strokeWidth="0dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/btnhome"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    app:lottie_rawRes="@raw/home_lordicon"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    />
+
+                <ImageView
+                    android:id="@+id/btnguardar"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/guardar"
+                    android:layout_gravity="center"
+                    android:foreground="?android:attr/selectableItemBackground"
+                     />
+
+
+                <Space
+                    android:layout_width="40dp"
+                    android:layout_height="30dp" />
+
+                <ImageView
+                    android:id="@+id/btnimagen"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/image"
+                    android:foreground="?android:attr/selectableItemBackground" />
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <ImageView
+            android:layout_width="103dp"
+            android:layout_height="100dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/adorno3"
+            android:scaleType="centerCrop">
+        </ImageView>
+    </LinearLayout>
+
+
+</ScrollView>

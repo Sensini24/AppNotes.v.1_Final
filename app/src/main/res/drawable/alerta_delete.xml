@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#fb868e" /> <!-- Color de fondo del LinearLayout -->
+    <corners android:radius="5dp" /> <!-- Radio de esquina para redondear -->
+</shape>

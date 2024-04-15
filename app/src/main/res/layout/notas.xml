@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/disenio_header_listanotas"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="9">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:cardBackgroundColor="#5E7CE2"
+            app:shapeAppearance="@style/saludo_usuario"
+            app:strokeColor="#5E7CE2">
+
+            <ImageView
+                android:id="@+id/imagenPerfil"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="centerCrop"
+                android:clipToOutline="true"
+                android:background="@drawable/image_prefil"
+                />
+
+            <TextView
+                android:id="@+id/fechaActual"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/joselight"
+                android:paddingLeft="45dp"
+                android:gravity="right"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="260dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="100dp"
+                android:fontFamily="@font/monobold"
+                android:gravity="left"
+                android:paddingTop="40dp"
+                android:text="Hola"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/txtNomUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="start"
+                android:layout_marginLeft="175dp"
+                android:fontFamily="@font/monobold"
+                android:gravity="start"
+                android:layout_marginTop="40dp"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="574dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@drawable/disenio_lista_notas"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/josebold"
+            android:gravity="left"
+            android:text="Notas"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#FFFFFF" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/buscador_redondeado"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="Buscar..."
+            android:queryHint="Buscar en las notas"
+            android:textAppearance="@font/monobold"
+            />
+
+        <TextView
+            android:id="@+id/path2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/path3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaNotasRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="445dp"
+            android:layout_marginTop="15dp"
+            android:background="#92B4F4"
+
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp"
+            >
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#92B4F4"
+        >
+
+        <LinearLayout
+            android:id="@+id/btnSalir"
+            android:layout_width="160px"
+            android:layout_height="160px"
+            android:layout_marginLeft="25dp"
+            android:background="@drawable/redondear_salir">
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/logoutA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                app:lottie_rawRes="@raw/logout_animation"
+                />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="87dp"
+            android:layout_height="wrap_content"
+            />
+
+        <LinearLayout
+            android:layout_width="160px"
+            android:layout_height="160px"
+            android:background="@drawable/redondear_salir">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/perfilUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:lottie_rawRes="@raw/perfiluser" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="87dp"
+            android:layout_height="wrap_content"
+            />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAgregarNota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginBottom="25dp"
+            android:backgroundTint="#5E7CE2"
+            android:src="@drawable/cruz"
+            >
+
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/awd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="227dp"
+            android:layout_marginBottom="25dp"
+            app:lottie_rawRes="@raw/add_note_animation"
+            />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+

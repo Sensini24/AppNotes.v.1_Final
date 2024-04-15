@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" >
+    <style name="saludo" parent=""
+        tools:ignore="MissingPrefix">
+        <item name="cornerSizeBottomLeft">29dp</item>
+        <item name="cornerSizeTopLeft">29dp</item>
+    </style>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="header" parent="">
+        <item name="cornerSizeBottomRight">45dp</item>
+    </style>
+    <style name="footer" parent="">
+        <item name="cornerSizeTopLeft">45dp</item>
+    </style>
+    <style name="tituloRedondeado" parent="">
+        <item name="cornerSizeBottomLeft">15dp</item>
+        <item name="cornerSizeBottomRight">15dp</item>
+    </style>
+    <style name="saludo_usuario" parent="">
+        <item name="cornerSizeBottomLeft">60dp</item>
+        <item name="cornerSizeBottomRight">60dp</item>
+    </style>
+    <style name="adorno1" parent="">
+        <item name="cornerSizeBottomLeft">29dp</item>
+        <item name="cornerSizeTopLeft">29dp</item>
+    </style>
+    <style name="saludo" parent="">
+        <item name="cornerSizeBottomLeft">100dp</item>
+        <item name="cornerSizeTopLeft">100dp</item>
+    </style>
+    <style name="botonLogin" parent="Widget.AppCompat.Button">
+        <item name="android:background">#000000</item>
+    </style>
+</resources>

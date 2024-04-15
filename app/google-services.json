@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "842023673993",
+    "project_id": "notesapp-quispe",
+    "storage_bucket": "notesapp-quispe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842023673993:android:8be6a132d528329f30a658",
+        "android_client_info": {
+          "package_name": "com.example.appnotes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6T252-UW5eMkYmYsRozT2quCnARGlTPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
