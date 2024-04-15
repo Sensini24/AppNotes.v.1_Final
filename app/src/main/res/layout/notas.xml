@@ -110,21 +110,10 @@
             android:textAppearance="@font/monobold"
             />
 
-        <TextView
-            android:id="@+id/path2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-        <TextView
-            android:id="@+id/path3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaNotasRecycler"
             android:layout_width="match_parent"
-            android:layout_height="445dp"
+            android:layout_height="470dp"
             android:layout_marginTop="15dp"
             android:background="#92B4F4"
 
@@ -151,8 +140,8 @@
 
             <LinearLayout
                 android:id="@+id/btnSalir"
-                android:layout_width="160px"
-                android:layout_height="160px"
+                android:layout_width="59dp"
+                android:layout_height="59dp"
                 android:layout_marginLeft="25dp"
                 android:background="@drawable/redondear_salir">
 
@@ -169,8 +158,8 @@
                 android:layout_height="wrap_content" />
 
             <LinearLayout
-                android:layout_width="160px"
-                android:layout_height="160px"
+                android:layout_width="59dp"
+                android:layout_height="59dp"
                 android:background="@drawable/redondear_salir">
 
                 <com.airbnb.lottie.LottieAnimationView
@@ -187,8 +176,8 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btnAgregarNota"
-                android:layout_width="160px"
-                android:layout_height="160px"
+                android:layout_width="59dp"
+                android:layout_height="59dp"
                 android:layout_marginRight="25dp"
                 android:backgroundTint="#CFDEE7"
                 android:src="@drawable/cruz">

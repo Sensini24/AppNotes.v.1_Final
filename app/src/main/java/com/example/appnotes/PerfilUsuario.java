@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -60,8 +61,15 @@ public class PerfilUsuario extends AppCompatActivity {
         editFotoPerfil = findViewById(R.id.editFotoPerfil);
         editNomUsuario = findViewById(R.id.editNomUsuario);
         cambiarUsuario = findViewById(R.id.cambiarUsuario);
-        // Solicitar permisos
-        //verificarYsolicitarPermisos();
+
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PerfilUsuario.this, ListarNotas.class));
+            }
+        });
+
+
 
         btnEditContr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,8 +82,27 @@ public class PerfilUsuario extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(getApplicationContext(), "Contraseña actualizada", Toast.LENGTH_SHORT).show();
+                                        // Actualizar la contraseña exitosamente
+                                        // Ahora ejecutar la actualización de la foto de usuario en un hilo separado
+                                        new AsyncTask<Void, Void, Void>() {
+                                            @Override
+                                            protected Void doInBackground(Void... voids) {
+                                                // Obtener el usuario de la base de datos
+                                                String usuarioId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                                Usuario usuario = NotaDataBase.getDatabase(getApplicationContext()).usuarioDao().obtenerUsuarioPorId(usuarioId);
+                                                // Actualizar la foto de usuario en la base de datos
+                                                NotaDataBase.getDatabase(getApplicationContext()).usuarioDao().actualizarFotoUsuario(usuario);
+                                                return null;
+                                            }
+
+                                            @Override
+                                            protected void onPostExecute(Void aVoid) {
+                                                // Mostrar mensaje de éxito
+                                                Toast.makeText(getApplicationContext(), "Contraseña actualizada", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }.execute();
                                     } else {
+                                        // Mostrar mensaje de error
                                         Toast.makeText(getApplicationContext(), "No se actualizó la contraseña", Toast.LENGTH_SHORT).show();
                                         Log.e("PerfilUsuario", "Error al actualizar la contraseña", task.getException());
                                     }
@@ -84,12 +111,6 @@ public class PerfilUsuario extends AppCompatActivity {
                 } else {
                     Log.e("PerfilUsuario", "Usuario actual es nulo");
                 }
-            }
-        });
-        btnVolver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(PerfilUsuario.this, ListarNotas.class));
             }
         });
 

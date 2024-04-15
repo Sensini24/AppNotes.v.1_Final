@@ -121,7 +121,6 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
 
 
 
-
         perfilUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

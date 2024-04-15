@@ -59,8 +59,6 @@ public class MainActivity extends AppCompatActivity {
         //aqui se obtiene el estado de la cuenta, si no hay nignuna cuenta sin "recordar"
         //te pide que te logees, si hay alguno ingresa sin logearse
 
-
-
         SharedPreferences sharedPreferences = getSharedPreferences("checkbox", MODE_PRIVATE);
         String checkbox = sharedPreferences.getString("remember", "");
         if(checkbox.equals("true")){
@@ -68,10 +66,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (checkbox.equals("false")) {
             Toast.makeText(this, "Ingrese tu correo y contraseña", Toast.LENGTH_SHORT).show();
         }
-
-
-
-
 
 
 
