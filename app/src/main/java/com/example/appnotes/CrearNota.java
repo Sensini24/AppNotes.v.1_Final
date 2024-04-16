@@ -222,8 +222,6 @@ public class CrearNota extends AppCompatActivity {
             anuncioTomarFoto();
         }
 
-
-
         else {
             String usuarioId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -367,6 +365,7 @@ public class CrearNota extends AppCompatActivity {
     }
 
 
+    //guardar cambios al volver a list notas
     @Override
     public void onBackPressed() {
 

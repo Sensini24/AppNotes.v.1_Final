@@ -76,7 +76,18 @@ public class PerfilUsuario extends AppCompatActivity {
             public void onClick(View v) {
                 usuarioActual = FirebaseAuth.getInstance().getCurrentUser();
                 if (usuarioActual != null) {
+                    if(editContra == null){
+                        Log.e("PerfilUsuario", "editContra es nulo");
+                        return;
+                    }
+
                     String newPassword = editContra.getText().toString();
+                    if (newPassword.isEmpty()) {
+
+                        Toast.makeText(getApplicationContext(), "La contraseña no puede estar vacía", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                     usuarioActual.updatePassword(newPassword)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
@@ -87,22 +98,20 @@ public class PerfilUsuario extends AppCompatActivity {
                                         new AsyncTask<Void, Void, Void>() {
                                             @Override
                                             protected Void doInBackground(Void... voids) {
-                                                // Obtener el usuario de la base de datos
                                                 String usuarioId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                                                 Usuario usuario = NotaDataBase.getDatabase(getApplicationContext()).usuarioDao().obtenerUsuarioPorId(usuarioId);
-                                                // Actualizar la foto de usuario en la base de datos
+
                                                 NotaDataBase.getDatabase(getApplicationContext()).usuarioDao().actualizarFotoUsuario(usuario);
                                                 return null;
                                             }
 
                                             @Override
                                             protected void onPostExecute(Void aVoid) {
-                                                // Mostrar mensaje de éxito
+
                                                 Toast.makeText(getApplicationContext(), "Contraseña actualizada", Toast.LENGTH_SHORT).show();
                                             }
                                         }.execute();
                                     } else {
-                                        // Mostrar mensaje de error
                                         Toast.makeText(getApplicationContext(), "No se actualizó la contraseña", Toast.LENGTH_SHORT).show();
                                         Log.e("PerfilUsuario", "Error al actualizar la contraseña", task.getException());
                                     }
@@ -113,6 +122,7 @@ public class PerfilUsuario extends AppCompatActivity {
                 }
             }
         });
+
 
         editFotoPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,27 +189,21 @@ public class PerfilUsuario extends AppCompatActivity {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             // La imagen fue seleccionada exitosamente
             Uri uri = data.getData();
-
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 FotoPerfil.setImageBitmap(bitmap);
                 String bitmapString = BitmapUtils.bitmapToString(bitmap);
-
                 // usuario actualñl
                 FirebaseUser usuarioActual = FirebaseAuth.getInstance().getCurrentUser();
                 if (usuarioActual != null) {
                     String usuarioId = usuarioActual.getUid();
-
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
                             Usuario usuario = NotaDataBase.getDatabase(getApplicationContext()).usuarioDao().obtenerUsuarioPorId(usuarioId);
-
-                            String urlImagen = uri.toString();
-
+                            //String urlImagen = uri.toString();
                             //meti un bitmap a string
                             usuario.setFotoUsuario(bitmapString);
-
                             NotaDataBase.getDatabase(getApplicationContext()).usuarioDao().actualizarFotoUsuario(usuario);
                         }
                     }).start();
@@ -243,25 +247,33 @@ public class PerfilUsuario extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String usuarioId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                Usuario usuario = NotaDataBase.getDatabase(getApplicationContext()).usuarioDao().obtenerUsuarioPorId(usuarioId);
+                String nombreNuevo = cambiarUsuario.getText().toString();
+                if (!TextUtils.isEmpty(nombreNuevo)) {
+                    String usuarioId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    Usuario usuario = NotaDataBase.getDatabase(getApplicationContext()).usuarioDao().obtenerUsuarioPorId(usuarioId);
 
-                // Cambiar el nombre del usuario
-                usuario.setNombre(cambiarUsuario.getText().toString());
+                    usuario.setNombre(nombreNuevo);
 
-                // Actualizar el usuario en la base de datos
-                NotaDataBase.getDatabase(getApplicationContext()).usuarioDao().actualizarFotoUsuario(usuario);
+                    NotaDataBase.getDatabase(getApplicationContext()).usuarioDao().actualizarFotoUsuario(usuario);
 
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        // Mostrar el toast con el nuevo nombre del usuario
-                        Toast.makeText(getApplicationContext(), "Nombre de Usuario ha sido cambiado por " + usuario.getNombre(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getApplicationContext(), "Nombre de Usuario ha sido cambiado por " + usuario.getNombre(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getApplicationContext(), "Ingrese un nombre", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
             }
         }).start();
     }
+
 
 
 }

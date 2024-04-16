@@ -73,6 +73,8 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
         agregarNota = findViewById(R.id.btnAgregarNota);
         nombreusuario = findViewById(R.id.txtNomUsuario);
         searchView = findViewById(R.id.searchView);
+
+        //RECYCLER VIEW Y NOTA ADAPTER, LISTA DE NOTAS
         listaNotasRecycler = findViewById(R.id.listaNotasRecycler);
         listaNotasRecycler.setLayoutManager(new StaggeredGridLayoutManager(2,
                 StaggeredGridLayoutManager.VERTICAL));
@@ -80,11 +82,11 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
         listadeNotas = new ArrayList<>();
         notaAdapter = new NotaAdapter(listadeNotas, this);
         listaNotasRecycler.setAdapter(notaAdapter);
+
+
         fechaAct = findViewById(R.id.fechaActual);
         imagePerfil = findViewById(R.id.imagenPerfil);
         perfilUsuario = findViewById(R.id.perfilUsuario);
-
-
 
 
 
