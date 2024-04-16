@@ -46,14 +46,12 @@ public class Forgot_Password extends AppCompatActivity {
             }
         });
 
-
         btnenviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 email = mEmailRecover.getText().toString();
 
                 if(!email.isEmpty()){
-
                     anuncio.setMessage("ENVIANDO. Espere, por favor...");
                     anuncio.setCanceledOnTouchOutside(false);
                     anuncio.show();
@@ -62,8 +60,6 @@ public class Forgot_Password extends AppCompatActivity {
                 else{
                     Toast.makeText(getApplicationContext(), "Ingrese el email", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
     }
@@ -78,11 +74,9 @@ public class Forgot_Password extends AppCompatActivity {
                 }else{
                     Toast.makeText(getApplicationContext(), "No se envió el correo de restauración de Contraseña", Toast.LENGTH_SHORT).show();
                 }
-
                 anuncio.dismiss();
             }
         });
     }
-
 
 }

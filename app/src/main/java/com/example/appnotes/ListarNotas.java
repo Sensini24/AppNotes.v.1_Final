@@ -55,7 +55,7 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
 
     private NotaAdapter notaAdapter;
     private List<Nota> listadeNotas;
-    private TextView nombreusuario, fechaAct, path2, path3;
+    private TextView nombreusuario, fechaAct;
     private SearchView searchView;
     private ImageView imagePerfil;
 
@@ -85,12 +85,9 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
         perfilUsuario = findViewById(R.id.perfilUsuario);
 
 
-        SimpleDateFormat fechaH = new SimpleDateFormat("EEE dd MMM", new Locale("es", "PE"));
-        fechaH.setTimeZone(TimeZone.getTimeZone("America/Lima"));
-        String fechaHeader = fechaH.format(new Date());
-        fechaAct.setText(fechaHeader);
 
-        String usuarioId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
 
         logoutAnim.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,19 +100,16 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
                 logoutAnim.setSpeed(1);
                 logoutAnim.playAnimation();
 
-                // Crear un nuevo Handler
                 Handler handler = new Handler();
 
-                // Agregar un retardo de 2 segundos (2000 milisegundos)
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        // Código que se ejecutará después del retardo
                         firebaseAuth.signOut();
                         finish();
                         startActivity(new Intent(ListarNotas.this, MainActivity.class));
                     }
-                }, 1200); // Retardo de 2 segundos
+                }, 1200);
             }
         });
 
@@ -126,9 +120,7 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
             public void onClick(View v) {
                 perfilUsuario.setSpeed(1);
                 perfilUsuario.playAnimation();
-
                 Handler handler = new Handler();
-
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -161,6 +153,7 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
         });
 
 
+        String usuarioId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         getNotas(usuarioId);
         cargarFotoYNombre();
     }
@@ -238,6 +231,11 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
                     @Override
                     public void run() {
 
+                        SimpleDateFormat fechaH = new SimpleDateFormat("EEE dd MMM", new Locale("es", "PE"));
+                        fechaH.setTimeZone(TimeZone.getTimeZone("America/Lima"));
+                        String fechaHeader = fechaH.format(new Date());
+                        fechaAct.setText(fechaHeader);
+
                         if(usuario.getNombre().isEmpty() || usuario.getNombre() == null){
                             nombreusuario.setText("Nombre Random");
                         }else{
@@ -258,5 +256,4 @@ public class ListarNotas extends AppCompatActivity implements NotaListener {
             }
         }).start();
     }
-
 }

@@ -332,22 +332,6 @@ public class CrearNota extends AppCompatActivity {
         });
     }
 
-    private void eliminarNota() {
-        if (nota != null) {
-            // Eliminar la nota de la base de datos
-            ExecutorService executor = Executors.newSingleThreadExecutor();
-            executor.execute(() -> {
-                NotaDataBase.getDatabase(getApplicationContext()).notaDao().deleteNote(nota);
-                runOnUiThread(() -> {
-                    Toast.makeText(getApplicationContext(), "Nota eliminada exitosamente", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, ListarNotas.class);
-                    startActivity(intent);
-                    finish();
-                });
-            });
-        }
-    }
-
 
     private Bitmap redimensionarBitmap(Bitmap bitmap, int maxSize) {
         int width = bitmap.getWidth();
